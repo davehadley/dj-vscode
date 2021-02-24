@@ -1,6 +1,11 @@
 import * as vscode from "vscode";
 import * as os from "os";
 
+export async function editFile(uri: vscode.Uri): Promise<vscode.TextEditor> {
+  let doc = await openOrCreateFile(uri);
+  return await vscode.window.showTextDocument(doc);
+}
+
 async function openOrCreateFile(uri: vscode.Uri): Promise<vscode.TextDocument> {
   try {
     console.log(`trying to open ${uri}`);
@@ -14,11 +19,6 @@ async function openOrCreateFile(uri: vscode.Uri): Promise<vscode.TextDocument> {
     console.log(`trying to open ${untitleduri}`);
     return await vscode.workspace.openTextDocument(untitleduri);
   }
-}
-
-export async function editFile(uri: vscode.Uri): Promise<vscode.TextEditor> {
-  let doc = await openOrCreateFile(uri);
-  return await vscode.window.showTextDocument(doc);
 }
 
 async function editFileWithTemplate(
