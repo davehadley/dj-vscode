@@ -1,2 +1,1 @@
-# dj-vscode
-Dave's Journal
+# dj-vscode : Dave's Journal Extension for VS Code
