@@ -1,6 +1,6 @@
-# dj README
+# Dave's Journal for VS Code
 
-This is the README for your extension "dj". After writing up a brief description, we recommend including the following sections.
+TODO
 
 ## Features
 
