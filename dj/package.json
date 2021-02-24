@@ -10,14 +10,20 @@
     "Other"
   ],
   "activationEvents": [
-    "onCommand:dj.helloWorld"
+    "onCommand:dj.capture"
   ],
   "main": "./out/extension.js",
   "contributes": {
     "commands": [
       {
-        "command": "dj.helloWorld",
-        "title": "Hello World"
+        "command": "dj.capture",
+        "title": "DJ Capture"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "dj.capture",
+        "key": "alt+."
       }
     ]
   },
