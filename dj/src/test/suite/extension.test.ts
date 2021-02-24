@@ -10,7 +10,7 @@ suite("Extension Test Suite", () => {
     assert.deepStrictEqual(Object.keys(dj), ["activate", "deactivate"]);
   });
 
-  test("dj makes all commands available to VS Code", async () => {
+  test("dj makes capture command available to VS Code", async () => {
     let commands = await vscode.commands.getCommands(true);
     assert(commands.includes("dj.capture"));
   });

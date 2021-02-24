@@ -10,14 +10,14 @@
     "Other"
   ],
   "activationEvents": [
-    "onCommand:dj.capture"
+    "onStartupFinished"
   ],
   "main": "./out/extension.js",
   "contributes": {
     "commands": [
       {
         "command": "dj.capture",
-        "title": "DJ Capture"
+        "title": "DJ: Capture"
       }
     ],
     "keybindings": [
@@ -33,7 +33,8 @@
     "watch": "tsc -watch -p ./",
     "pretest": "npm run compile && npm run lint",
     "lint": "eslint src --ext ts",
-    "test": "node ./out/test/runTest.js"
+    "test": "node ./out/test/runTest.js",
+    "deploy": "vsce publish --yarn"
   },
   "devDependencies": {
     "@types/glob": "^7.1.3",
