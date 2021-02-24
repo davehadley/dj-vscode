@@ -1,0 +1,26 @@
+default_stages: [commit]
+
+repos:
+  - repo: https://github.com/pre-commit/mirrors-prettier
+    rev: v2.2.1
+    hooks:
+      - id: prettier
+
+  - repo: https://github.com/pre-commit/mirrors-eslint
+    rev: "v7.20.0"
+    hooks:
+      - id: eslint
+
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v3.2.0
+    hooks:
+      - id: check-added-large-files
+      - id: check-ast
+      - id: check-merge-conflict
+      - id: check-yaml
+      - id: check-toml
+      - id: check-json
+        exclude: (.vscode/.*.json)|(tsconfig.json)
+      - id: mixed-line-ending
+        args: [--fix=lf]
+        stages: [commit]
