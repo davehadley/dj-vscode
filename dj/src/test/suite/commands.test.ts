@@ -7,9 +7,10 @@ import * as fs from "fs";
 import * as path from "path";
 import * as moment from "moment";
 import { Config } from "../../config";
+import * as os from "os";
 
 function testconfig(): Config {
-  let directory = fs.mkdtempSync("testdj");
+  let directory = fs.mkdtempSync(path.join(os.tmpdir(), "testdj"));
   return new Config((directory = directory));
 }
 
