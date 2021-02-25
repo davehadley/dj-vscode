@@ -2,11 +2,13 @@ import * as vscode from "vscode";
 import * as os from "os";
 import * as file from "./file";
 import * as directories from "./directories";
+import { Config } from "./config";
 import * as moment from "moment";
 
-export async function capture(): Promise<vscode.TextEditor> {
+export async function capture(config?: Config): Promise<vscode.TextEditor> {
   console.log("dj capture");
-  let path = await directories.inbox();
+  config = config || Config.load();
+  let path = await directories.inbox(config);
   let filename = moment().format("YYYY-MM-DD_hh-mm-ss");
   let uri = vscode.Uri.joinPath(path, `${filename}.md`);
   return file.editFile(uri);
