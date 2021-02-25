@@ -33,7 +33,7 @@ suite("Commands Test Suite", function () {
 
   test("capture creates a new file with unique name", async () => {
     let config = testconfig();
-    let name = moment().format("YYYY-MM-DD_hh-mm-ss");
+    let name = moment().format("YYYY-MM-DD_hh"); // don't check min/secs as might fail
     let editor = await commands.capture((config = config));
     await editor.document.save();
     let uri = editor.document.uri;
