@@ -25,7 +25,20 @@
         "command": "dj.capture",
         "key": "alt+."
       }
-    ]
+    ],
+    "configuration": {
+      "title": "DJ",
+      "properties": {
+        "dj.directory": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "default": null,
+          "description": "Journal root directory where all notes will be stored."
+        }
+      }
+    }
   },
   "scripts": {
     "vscode:prepublish": "npm run compile",
