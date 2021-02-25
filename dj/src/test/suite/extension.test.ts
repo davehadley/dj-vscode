@@ -5,7 +5,7 @@ import * as dj from "../../extension";
 import * as fs from "fs";
 
 suite("Extension Test Suite", () => {
-  vscode.window.showInformationMessage("Start all tests.");
+  vscode.window.showInformationMessage("Start extensions tests.");
 
   test("dj exports only activate and deactivate", () => {
     assert.deepStrictEqual(Object.keys(dj), ["activate", "deactivate"]);
