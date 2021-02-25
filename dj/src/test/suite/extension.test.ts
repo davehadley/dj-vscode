@@ -16,6 +16,11 @@ suite("Extension Test Suite", () => {
     assert(commands.includes("dj.capture"));
   });
 
+  test("dj makes create note command available to VS Code", async () => {
+    let commands = await vscode.commands.getCommands(true);
+    assert(commands.includes("dj.note"));
+  });
+
   test("dj configuration has directory property", async () => {
     let config = vscode.workspace.getConfiguration("dj");
     assert("directory" in config);

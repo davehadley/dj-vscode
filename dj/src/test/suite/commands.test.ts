@@ -40,4 +40,14 @@ suite("Commands Test Suite", function () {
     assert(fs.existsSync(uri.fsPath));
     assert(uri.fsPath.includes(name));
   });
+
+  test("note creates a new file in today's directory", async () => {
+    let config = testconfig();
+    let name = moment().format("YYYY/MM/DD");
+    let editor = await commands.note((config = config));
+    await editor.document.save();
+    let uri = editor.document.uri;
+    assert(fs.existsSync(uri.fsPath));
+    assert(uri.fsPath.replace(/\\/g, "/").includes(name));
+  });
 });

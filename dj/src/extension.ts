@@ -4,6 +4,7 @@ import * as commands from "./commands";
 export function activate(context: vscode.ExtensionContext) {
   console.log("dj activate");
   newcommand(context, "dj.capture", commands.capture);
+  newcommand(context, "dj.note", commands.note);
 }
 
 export function deactivate() {

@@ -18,6 +18,18 @@
       {
         "command": "dj.capture",
         "title": "DJ: Capture"
+      },
+      {
+        "command": "dj.note",
+        "title": "DJ: Note"
+      },
+      {
+        "command": "dj.today",
+        "title": "DJ: Today"
+      },
+      {
+        "command": "dj.yesterday",
+        "title": "DJ: Yesterday"
       }
     ],
     "keybindings": [
