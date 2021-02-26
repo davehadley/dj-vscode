@@ -29,12 +29,8 @@
         "title": "DJ: Note"
       },
       {
-        "command": "dj.today",
-        "title": "DJ: Today"
-      },
-      {
-        "command": "dj.yesterday",
-        "title": "DJ: Yesterday"
+        "command": "dj.template",
+        "title": "DJ: Note from template..."
       }
     ],
     "keybindings": [

@@ -5,6 +5,7 @@ export function activate(context: vscode.ExtensionContext) {
   console.log("dj activate");
   newcommand(context, "dj.capture", commands.capture);
   newcommand(context, "dj.note", commands.note);
+  newcommand(context, "dj.template", commands.template);
 }
 
 export function deactivate() {
