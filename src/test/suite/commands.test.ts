@@ -14,6 +14,12 @@ function testconfig(): Config {
   return new Config((directory = directory));
 }
 
+function testconfigwithtemplate(name: string, text: string): Config {
+  let directory = fs.mkdtempSync(path.join(os.tmpdir(), "testdj"));
+  fs.writeFileSync(path.join((directory, name + ".md")), text);
+  return new Config((directory = directory));
+}
+
 suite("Commands Test Suite", function () {
   this.timeout(10000);
 
@@ -49,5 +55,28 @@ suite("Commands Test Suite", function () {
     let uri = editor.document.uri;
     assert(fs.existsSync(uri.fsPath));
     assert(uri.fsPath.replace(/\\/g, "/").includes(name));
+  });
+
+  test("template creates a new file in today's directory containing the matching template text", async () => {
+    let templatename = "example_template";
+    let templatetext = "This is a template.";
+
+    let showInputBox = vscode.window.showInputBox;
+    vscode.window.showInputBox = async function (...args: any[]) {
+      return templatename;
+    };
+
+    let config = testconfigwithtemplate(templatename, templatetext);
+    let editor = await commands.template((config = config));
+    await editor.document.save();
+    let uri = editor.document.uri;
+
+    assert(fs.existsSync(uri.fsPath));
+    assert(
+      uri.fsPath.replace(/\\/g, "/").includes(moment().format("YYYY/MM/DD"))
+    );
+    assert.strictEqual(fs.readFileSync(uri.fsPath), templatetext);
+
+    vscode.window.showInputBox = showInputBox;
   });
 });

@@ -4,6 +4,7 @@ import * as file from "./file";
 import * as directories from "./directories";
 import { Config } from "./config";
 import * as moment from "moment";
+import * as templateimpl from "./template";
 
 export async function capture(config?: Config): Promise<vscode.TextEditor> {
   console.log("dj capture");
@@ -26,9 +27,5 @@ export async function note(config?: Config): Promise<vscode.TextEditor> {
 export async function template(config?: Config): Promise<vscode.TextEditor> {
   console.log("dj template");
   config = config || Config.load();
-  let input = await vscode.window.showInputBox();
-  let path = await directories.today(config);
-  let filename = moment().format("YYYY-MM-DD_hhmmss");
-  let uri = vscode.Uri.joinPath(path, `${filename}.md`);
-  return file.editFile(uri);
+  return templateimpl.template(config);
 }
