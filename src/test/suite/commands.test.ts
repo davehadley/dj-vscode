@@ -16,7 +16,7 @@ function testconfig(): Config {
 
 function testconfigwithtemplate(name: string, text: string): Config {
   let directory = fs.mkdtempSync(path.join(os.tmpdir(), "testdj"));
-  fs.writeFileSync(path.join((directory, name + ".md")), text);
+  fs.writeFileSync(path.join(directory, name + ".md"), text);
   return new Config((directory = directory));
 }
 

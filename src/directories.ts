@@ -33,3 +33,8 @@ export async function today(config: Config): Promise<vscode.Uri> {
   );
   return ensureDirectoryExists(today);
 }
+
+export async function templates(config: Config): Promise<vscode.Uri> {
+  let templates = vscode.Uri.joinPath(await root(config), "templates");
+  return ensureDirectoryExists(templates);
+}

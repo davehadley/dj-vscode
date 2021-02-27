@@ -21,7 +21,7 @@ async function openOrCreateFile(uri: vscode.Uri): Promise<vscode.TextDocument> {
   }
 }
 
-async function editFileWithTemplate(
+export async function editFileWithTemplate(
   uri: vscode.Uri,
   template: string
 ): Promise<vscode.TextEditor> {
