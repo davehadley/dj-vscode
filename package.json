@@ -2,6 +2,11 @@
   "name": "dj",
   "displayName": "dj",
   "description": "Dave's Journal Extension for VS Code",
+  "publisher": "davehadley",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/davehadley/dj-vscode"
+  },
   "version": "0.0.1",
   "engines": {
     "vscode": "^1.53.0"
@@ -59,7 +64,8 @@
     "pretest": "npm run compile && npm run lint",
     "lint": "eslint src --ext ts",
     "test": "node ./out/test/runTest.js",
-    "deploy": "vsce publish --yarn"
+    "deploy": "vsce publish --yarn",
+    "deploylocal": "python scripts/deploylocal.py"
   },
   "devDependencies": {
     "@types/glob": "^7.1.3",
@@ -72,6 +78,7 @@
     "glob": "^7.1.6",
     "mocha": "^8.2.1",
     "typescript": "^4.1.3",
+    "vsce": "^1.85.0",
     "vscode-test": "^1.5.0"
   },
   "dependencies": {

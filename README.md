@@ -9,3 +9,17 @@ it installed on all of my machines.
 
 Consider using instead:
 [VS Code Journal](https://marketplace.visualstudio.com/items?itemName=pajoma.vscode-journal).
+
+# Installation Instructions
+
+To build:
+
+```
+npm run compile
+```
+
+To install in your local version of code:
+
+```
+npm run deploylocal
+```
